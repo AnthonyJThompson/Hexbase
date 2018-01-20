@@ -8,15 +8,17 @@ public class HexMapEditor : MonoBehaviour {
 	public HexGrid hexGrid;
 
 	private Color activeColor;
+    private bool isEnabled = true;
 
 	void Awake () {
-		SelectColor(0);
+		SelectColor(-1);
 	}
 
 	void Update () {
 		if (
 			Input.GetMouseButton(0) &&
-			!EventSystem.current.IsPointerOverGameObject()
+			!EventSystem.current.IsPointerOverGameObject() &&
+            isEnabled
 		) {
 			HandleInput();
 		}
@@ -31,6 +33,12 @@ public class HexMapEditor : MonoBehaviour {
 	}
 
 	public void SelectColor (int index) {
+        if (index == -1)
+        {
+            isEnabled = false;
+            return;
+        }
+        isEnabled = true;
 		activeColor = colors[index];
 	}
 }

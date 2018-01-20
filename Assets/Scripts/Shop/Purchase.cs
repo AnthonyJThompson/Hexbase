@@ -4,8 +4,9 @@ using UnityEngine.EventSystems;
 public class Purchase : MonoBehaviour {
 
 	public HexGrid hexGrid;
-	public GameObject FarmPrefab;
-	GameObject selectedObject;
+	public Structure FarmPrefab;
+    public Structure WoodPrefab;
+    Structure selectedObject;
 
 	void Awake () {
 		
@@ -26,7 +27,6 @@ public class Purchase : MonoBehaviour {
 				if (cell != null) {
 					selectedObject.SetActive(true);
 					selectedObject.transform.position = cell.transform.position;
-					Debug.Log(cell.transform.position);
 					snapped = true;
 				}
 			}
@@ -35,13 +35,30 @@ public class Purchase : MonoBehaviour {
 			}
 		}
 		if (Input.GetMouseButton(0) && cell != null) {
+            cell.Structure = selectedObject;
 			selectedObject = null;
 		}
 	}
 
-	public void SelectFarm () {
-		Destroy(selectedObject);
-		selectedObject = Instantiate<GameObject>(FarmPrefab);
+    void ResetSelection ()
+    {
+        if (selectedObject != null)
+        {
+            Destroy(selectedObject.gameObject);
+        }
+    }
+
+	public void SelectFarm ()
+    {
+        ResetSelection();
+        selectedObject = Instantiate<Structure>(FarmPrefab);
 		selectedObject.SetActive(false);
 	}
+
+    public void SelectWoodCutter()
+    {
+        ResetSelection();
+        selectedObject = Instantiate<Structure>(WoodPrefab);
+        selectedObject.SetActive(false);
+    }
 }

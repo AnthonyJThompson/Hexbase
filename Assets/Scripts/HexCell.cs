@@ -6,10 +6,30 @@ public class HexCell : MonoBehaviour {
 
 	public Color color;
 
+    public Structure Structure;
+
 	[SerializeField]
 	HexCell[] neighbors;
 
-	public HexCell GetNeighbor (HexDirection direction) {
+    public float updateInterval = 1.0f;
+    private float nextUpdate = 0.0f;
+
+    private void Update()
+    {
+        if (Time.time > nextUpdate)
+        {
+            nextUpdate += updateInterval;
+
+            if (Structure != null)
+            {
+                Structure.AddResource();
+                //Debug.Log("update");
+            }
+
+        }
+    }
+
+    public HexCell GetNeighbor (HexDirection direction) {
 		return neighbors[(int)direction];
 	}
 
@@ -17,4 +37,5 @@ public class HexCell : MonoBehaviour {
 		neighbors[(int)direction] = cell;
 		cell.neighbors[(int)direction.Opposite()] = this;
 	}
+
 }
