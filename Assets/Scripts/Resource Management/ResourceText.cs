@@ -8,7 +8,7 @@ public class ResourceText : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        FoodText = "Food: " + ResTracker.Food;
-        FoodText = "Wood: " + ResTracker.Wood;
+        FoodText.text = "Food: " + ResTracker.Food;
+        WoodText.text = "Wood: " + ResTracker.Wood;
     }
 }

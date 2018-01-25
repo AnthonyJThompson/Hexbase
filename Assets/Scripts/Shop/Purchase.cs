@@ -23,8 +23,9 @@ public class Purchase : MonoBehaviour {
 		if (selectedObject != null) {
 			bool snapped = false;
 			if (Physics.Raycast(inputRay, out hit)) {
-				cell = hexGrid.GetCellFromPosition(hit.point);
-				if (cell != null) {
+				cell = hexGrid.GetCell(hit.point);
+				if (cell != null && selectedObject.ValidCellTypes.Contains(cell.CellType)) {
+
 					selectedObject.SetActive(true);
 					selectedObject.transform.position = cell.transform.position;
 					snapped = true;
@@ -35,6 +36,10 @@ public class Purchase : MonoBehaviour {
 			}
 		}
 		if (Input.GetMouseButton(0) && cell != null) {
+								
+			if (cell.Structure != null) {
+				DestroyObject(cell.Structure.gameObject);
+			}
             cell.Structure = selectedObject;
 			selectedObject = null;
 		}

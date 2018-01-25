@@ -1,11 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
-    public ResourceTracker ResTracker;
-
-    public virtual void AddResource() {}
+    public System.Collections.Generic.List<CellType> ValidCellTypes;
+    public virtual void StructureUpdate() {}
     internal void SetActive(bool v)
     {
         var renderer = GetComponent<MeshRenderer>();

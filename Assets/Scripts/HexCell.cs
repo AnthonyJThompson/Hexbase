@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 
 public class HexCell : MonoBehaviour {
-
 	public HexCoordinates coordinates;
-
-	public Color color;
-
+    public int Elevation {
+		get {
+			return elevation;
+		}
+		set {
+			elevation = value;
+            Vector3 position = transform.localPosition;
+			position.y = value * HexMetrics.elevationStep;
+			transform.localPosition = position;
+		}
+	}
+	private int elevation;
+    public Color Color;
+    public CellType CellType;
     public Structure Structure;
-
 	[SerializeField]
 	HexCell[] neighbors;
-
     public float updateInterval = 1.0f;
     private float nextUpdate = 0.0f;
 
@@ -22,7 +30,7 @@ public class HexCell : MonoBehaviour {
 
             if (Structure != null)
             {
-                Structure.AddResource();
+                Structure.StructureUpdate();
                 //Debug.Log("update");
             }
 
@@ -38,4 +46,12 @@ public class HexCell : MonoBehaviour {
 		cell.neighbors[(int)direction.Opposite()] = this;
 	}
 
+    public void SetType(Color color, int cellType){
+        Color = color;
+        CellType = (CellType)cellType;
+    }
+}
+
+public enum CellType {
+    Grass, Forest, Water, NONE
 }

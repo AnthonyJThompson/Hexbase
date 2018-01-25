@@ -9,6 +9,7 @@ public static class HexMetrics {
 	public const float solidFactor = 0.98f;
 
 	public const float blendFactor = 1f - solidFactor;
+	public const float elevationStep = 5f;
 
 	static Vector3[] corners = {
 		new Vector3(0f, 0f, outerRadius),

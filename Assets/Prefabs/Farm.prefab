@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4879391385366018}
   - component: {fileID: 33037801430468912}
   - component: {fileID: 23961349650080526}
-  - component: {fileID: 114636611899587876}
+  - component: {fileID: 114794816927249686}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500812041548880}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114636611899587876
+--- !u!114 &114794816927249686
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,8 +91,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1500812041548880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec163ff7ecdf50344855458e79cddf84, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e8dbecc8ea9134d8d7c6fbd2db79eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResTracker: {fileID: 11400000, guid: d7ecdf17a2eb3bd4d84f7fda2cd75a84, type: 2}
+  ValidCellTypes: 0000000003000000
   Level: 1
+  ResourceType: 0
+  ResourceTracker: {fileID: 11400000, guid: d7ecdf17a2eb3bd4d84f7fda2cd75a84, type: 2}

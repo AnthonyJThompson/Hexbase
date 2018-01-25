@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7249ff07511dbb4fa6ce18c5a395093, type: 3}
   m_Name: MainGameTracker
   m_EditorClassIdentifier: 
-  Food: 50
-  Wood: 34
+  Food: 6
+  Wood: 0

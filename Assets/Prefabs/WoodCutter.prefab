@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4951880209925658}
   - component: {fileID: 33953022778657650}
   - component: {fileID: 23844816069412290}
-  - component: {fileID: 114216203415240044}
+  - component: {fileID: 114528154497606708}
   m_Layer: 0
   m_Name: WoodCutter
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188149239030524}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114216203415240044
+--- !u!114 &114528154497606708
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,8 +91,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1188149239030524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de50226473c435b4daa7188ed024fe80, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e8dbecc8ea9134d8d7c6fbd2db79eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResTracker: {fileID: 11400000, guid: d7ecdf17a2eb3bd4d84f7fda2cd75a84, type: 2}
+  ValidCellTypes: 01000000
   Level: 1
+  ResourceType: 1
+  ResourceTracker: {fileID: 11400000, guid: d7ecdf17a2eb3bd4d84f7fda2cd75a84, type: 2}
